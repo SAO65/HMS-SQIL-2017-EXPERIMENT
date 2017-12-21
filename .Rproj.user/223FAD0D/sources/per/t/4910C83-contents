@@ -1,7 +1,7 @@
 # DATA FROM THE HMS SQIL 04-2017 EXPERIMENT
-BestIndividualScore<-c(46,57,38,50,56,52,30)
-AverageGroupScore <- c(51.25,65.6,51.25,61.3,60,61,57.2)
 TeamScore <- c(42,64,38,60,54,52,64)
+AverageGroupScore <- c(51.25,65.6,51.25,61.3,60,61,57.2)
+BestIndividualScore<-c(46,57,38,50,56,52,30)
 
 
 # EXPLORATORY DATA ANALYSIS
@@ -61,7 +61,7 @@ mean <- qnorm(0.5, mean=mean_baseline, sd=sd_baseline)
 
 x <- seq(0,72,0.01)
 
-plot(x, dnorm(x, 36, 7.2), 
+plot(x, dnorm(x, mean_baseline, sd_baseline), 
      type="l",
      lwd=2,
      lty=2,
@@ -74,8 +74,8 @@ plot(x, dnorm(x, 36, 7.2),
      axes = FALSE)
 
 
-axis(1, at = c(firstQuantile, 36, lastQuantile), 
-     labels = c(round(firstQuantile,1), 36, round(lastQuantile, 1)), 
+axis(1, at = c(firstQuantile, mean_baseline, lastQuantile), 
+     labels = c(round(firstQuantile,1), mean_baseline, round(lastQuantile, 1)), 
      col.axis="black", 
      tck=-.01,
      las=1)
@@ -108,3 +108,19 @@ legend(-3,.07,
        lwd=c(2.5,2.5,2.5,2.5),
        col=c("black", "skyblue","blue", "red"),
        bty = "n")
+
+
+# Actual Result 1
+set.seed(1)
+BaselineScore <- sample(rnorm(x, mean_baseline, sd_baseline), size = 7, replace = TRUE)
+var.test(TeamScore, BaselineScore)
+t.test(TeamScore, BaselineScore)
+
+# Actual Result 2
+var.test(TeamScore, AverageGroupScore)
+t.test(TeamScore, AverageGroupScore)
+
+# Actual Result 3
+var.test(TeamScore, BestIndividualScore)
+t.test(TeamScore, BestIndividualScore)
+
