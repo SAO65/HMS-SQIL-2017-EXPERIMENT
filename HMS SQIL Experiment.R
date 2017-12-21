@@ -5,20 +5,22 @@ BestIndividualScore<-c(46,57,38,50,56,52,30)
 
 
 # EXPLORATORY DATA ANALYSIS
-(mean_BestIndividualScore <- mean(BestIndividualScore))
-(sd_BestIndividualScore <- sd(BestIndividualScore))
-(firstQuantile <- qnorm(0.05, mean=mean_BestIndividualScore, sd=sd_BestIndividualScore))
-(lastQuantile <- qnorm(0.95, mean=mean_BestIndividualScore, sd=sd_BestIndividualScore))
+(mean_TeamScore <- mean(TeamScore))
+(sd_TeamScore <- sd(TeamScore))
+(firstQuantile <- qnorm(0.025, mean=mean_TeamScore, sd=sd_TeamScore))
+(lastQuantile <- qnorm(0.975, mean=mean_TeamScore, sd=sd_TeamScore))
 
 (mean_AverageGroupScore <- mean(AverageGroupScore))
 (sd_AverageGroupScore <- sd(AverageGroupScore))
-(firstQuantile <- qnorm(0.05, mean=mean_AverageGroupScore, sd=sd_AverageGroupScore))
-(lastQuantile <- qnorm(0.95, mean=mean_AverageGroupScore, sd=sd_AverageGroupScore))
+(firstQuantile <- qnorm(0.025, mean=mean_AverageGroupScore, sd=sd_AverageGroupScore))
+(lastQuantile <- qnorm(0.975, mean=mean_AverageGroupScore, sd=sd_AverageGroupScore))
 
-(mean_TeamScore <- mean(TeamScore))
-(sd_TeamScore <- sd(TeamScore))
-(firstQuantile <- qnorm(0.05, mean=mean_TeamScore, sd=sd_TeamScore))
-(lastQuantile <- qnorm(0.95, mean=mean_TeamScore, sd=sd_TeamScore))
+(mean_BestIndividualScore <- mean(BestIndividualScore))
+(sd_BestIndividualScore <- sd(BestIndividualScore))
+(firstQuantile <- qnorm(0.025, mean=mean_BestIndividualScore, sd=sd_BestIndividualScore))
+(lastQuantile <- qnorm(0.975, mean=mean_BestIndividualScore, sd=sd_BestIndividualScore))
+
+
 
 strip.data <- data.frame(BestIndividualScore, AverageGroupScore, TeamScore)
 stripchart(strip.data, 
@@ -55,9 +57,8 @@ coefficient_of_variation <- 0.25
 mean_baseline <- 36
 sd_baseline <- mean_baseline * coefficient_of_variation
 
-firstQuantile <- qnorm(0.025, mean=mean_baseline, sd=sd_baseline)
-lastQuantile <- qnorm(0.975, mean=mean_baseline, sd=sd_baseline)
-mean <- qnorm(0.5, mean=mean_baseline, sd=sd_baseline)
+(firstQuantile <- qnorm(0.025, mean=mean_baseline, sd=sd_baseline))
+(lastQuantile <- qnorm(0.975, mean=mean_baseline, sd=sd_baseline))
 
 x <- seq(0,72,0.01)
 
@@ -85,8 +86,8 @@ abline(v=lastQuantile,lty=2,col="black", lwd=.5)
 abline(v=mean,lty=1,col="black", lwd=.5)
 text(36, .09, "25% Variation Coefficient")
 text(36, .08, "95% Confidence Interval")
-text(13, .099, "very high   <<")
-text(58, .099, ">>  very low")
+text(11, .099, "very high   <<")
+text(60, .099, ">>  very low")
 text(41, .099, "> low")
 text(31, .099, "high <")
 
