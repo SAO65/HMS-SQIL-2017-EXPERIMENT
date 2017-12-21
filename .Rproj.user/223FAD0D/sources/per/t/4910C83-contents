@@ -20,11 +20,6 @@ TeamScore <- c(42,64,38,60,54,52,64)
 (firstQuantile <- qnorm(0.05, mean=mean_TeamScore, sd=sd_TeamScore))
 (lastQuantile <- qnorm(0.95, mean=mean_TeamScore, sd=sd_TeamScore))
 
-
-firstQuantile <- qnorm(0.05, mean=36, sd=7.2)
-lastQuantile <- qnorm(0.95, mean=36, sd=7.2)
-mean <- qnorm(0.5, mean=36, sd=7.2)
-
 strip.data <- data.frame(BestIndividualScore, AverageGroupScore, TeamScore)
 stripchart(strip.data, 
            vertical=TRUE,
@@ -37,22 +32,32 @@ stripchart(strip.data,
            method="jitter",
            yaxt="n",
            bty="n",
-           ylab="Performance",
-           main="Experiment HMS SQIL 04-2017 \n April 2017, Boston (MA)")
-axis(1, at=c(1,2,3), labels = c("Individual Leader","Group","Team"))
+           ylab="Score",
+           main="Experiment HMS SQIL 04-2017 \n April 2017, Boston (MA) \n Scatterplot")
+axis(1, at=c(1,2,3), labels = c("Best Individual","Group","Team"))
 axis(2, at=c(0,36,72), las=1)
 axis(4, pos=3.2, at=c(round(min(TeamScore), 0), round(mean(TeamScore), 0),round(max(TeamScore),0)), col.axis="black", las=2, cex.axis=0.7, tck=-.01)
 axis(4, pos=2.2, at=c(round(min(AverageGroupScore), 0), round(mean(AverageGroupScore), 0),round(max(AverageGroupScore),0)), col.axis="black", las=2, cex.axis=0.7, tck=-.01)
 axis(4, pos=1.2, at=c(round(min(BestIndividualScore), 0), round(mean(BestIndividualScore), 0),round(max(BestIndividualScore),0)), col.axis="black", las=2, cex.axis=0.7, tck=-.01)
 abline(h=36, lty=2)
-text(2, 40, "WORSE THAN BASELINE ABOVE")
-text(2, 32, "BETTER THAN BASELINE BELOW")
-text(2, 10, "Number of participants = 45")
-text(2, 15, "Number of teams = 7")
+text(2, 39, "WORSE THAN BASELINE ABOVE")
+text(2, 33, "BETTER THAN BASELINE BELOW")
+text(2, 15, "Number of participants = 42")
+text(2, 10, "Number of teams = 7")
+text(2, 5, "Smaller Axes = min - median - max")
 summary(strip.data)
+
 
 # NORMALIZATION AND PLOTS
 par(mar = c(5,4,4,2) + 0.1) ## default is c(5,4,4,2) + 0.1
+
+coefficient_of_variation <- 0.25
+mean_baseline <- 36
+sd_baseline <- mean_baseline * coefficient_of_variation
+
+firstQuantile <- qnorm(0.025, mean=mean_baseline, sd=sd_baseline)
+lastQuantile <- qnorm(0.975, mean=mean_baseline, sd=sd_baseline)
+mean <- qnorm(0.5, mean=mean_baseline, sd=sd_baseline)
 
 x <- seq(0,72,0.01)
 
@@ -63,7 +68,7 @@ plot(x, dnorm(x, 36, 7.2),
      ylim=c(0,.1),
      yaxt="n",
      bty="n",
-     main="HMS SQIL 04-2017 \n Performance",
+     main="HMS SQIL Experiment 04-2017 \n April 2017, Boston (MA) \n Sampling Distribution",
      xlab="Score",
      ylab="",
      axes = FALSE)
@@ -75,11 +80,13 @@ axis(1, at = c(firstQuantile, 36, lastQuantile),
      tck=-.01,
      las=1)
 
-abline(v=firstQuantile ,lty=2,col="black")
-abline(v=lastQuantile,lty=2,col="black")
-abline(v=mean,lty=1,col="black")
-text(15, .099, "very high   <<")
-text(56, .099, ">>  very low")
+abline(v=firstQuantile ,lty=2,col="black", lwd=.5)
+abline(v=lastQuantile,lty=2,col="black", lwd=.5)
+abline(v=mean,lty=1,col="black", lwd=.5)
+text(36, .09, "25% Variation Coefficient")
+text(36, .08, "95% Confidence Interval")
+text(13, .099, "very high   <<")
+text(58, .099, ">>  very low")
 text(41, .099, "> low")
 text(31, .099, "high <")
 
@@ -96,7 +103,7 @@ lines(x, dnorm(x,mean_TeamScore, sd_TeamScore),
       lwd=2)
 
 legend(-3,.07,  
-       c("Baseline 95% CI","Highest Individual", "Group Average", "Team"),
+       c("Baseline","Best Individual", "Group", "Team"),
        lty=c(2,1,1,1),
        lwd=c(2.5,2.5,2.5,2.5),
        col=c("black", "skyblue","blue", "red"),
