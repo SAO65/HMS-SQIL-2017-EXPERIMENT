@@ -9,18 +9,19 @@ BestIndividualScore<-c(46,57,38,50,56,52,30)
 (sd_TeamScore <- sd(TeamScore))
 (firstQuantile <- qnorm(0.025, mean=mean_TeamScore, sd=sd_TeamScore))
 (lastQuantile <- qnorm(0.975, mean=mean_TeamScore, sd=sd_TeamScore))
+(VarCoefTeam <- sd_TeamScore / mean_TeamScore * 100)
 
 (mean_AverageGroupScore <- mean(AverageGroupScore))
 (sd_AverageGroupScore <- sd(AverageGroupScore))
 (firstQuantile <- qnorm(0.025, mean=mean_AverageGroupScore, sd=sd_AverageGroupScore))
 (lastQuantile <- qnorm(0.975, mean=mean_AverageGroupScore, sd=sd_AverageGroupScore))
+(VarCoefGroup <- sd_AverageGroupScore / mean_AverageGroupScore * 100)
 
 (mean_BestIndividualScore <- mean(BestIndividualScore))
 (sd_BestIndividualScore <- sd(BestIndividualScore))
 (firstQuantile <- qnorm(0.025, mean=mean_BestIndividualScore, sd=sd_BestIndividualScore))
 (lastQuantile <- qnorm(0.975, mean=mean_BestIndividualScore, sd=sd_BestIndividualScore))
-
-
+(VarCoefBest <- sd_BestIndividualScore / mean_BestIndividualScore * 100)
 
 strip.data <- data.frame(BestIndividualScore, AverageGroupScore, TeamScore)
 stripchart(strip.data, 
@@ -54,8 +55,9 @@ summary(strip.data)
 par(mar = c(5,4,4,2) + 0.1) ## default is c(5,4,4,2) + 0.1
 
 coefficient_of_variation <- 0.25
+
 mean_baseline <- 36
-sd_baseline <- mean_baseline * coefficient_of_variation
+(sd_baseline <- mean_baseline * coefficient_of_variation)
 
 (firstQuantile <- qnorm(0.025, mean=mean_baseline, sd=sd_baseline))
 (lastQuantile <- qnorm(0.975, mean=mean_baseline, sd=sd_baseline))
@@ -83,7 +85,7 @@ axis(1, at = c(firstQuantile, mean_baseline, lastQuantile),
 
 abline(v=firstQuantile ,lty=2,col="black", lwd=.5)
 abline(v=lastQuantile,lty=2,col="black", lwd=.5)
-abline(v=mean,lty=1,col="black", lwd=.5)
+abline(v=mean_baseline,lty=1,col="black", lwd=.5)
 text(36, .09, "25% Variation Coefficient")
 text(36, .08, "95% Confidence Interval")
 text(11, .099, "very high   <<")
@@ -113,7 +115,7 @@ legend(-3,.07,
 
 # Actual Result 1
 set.seed(1)
-BaselineScore <- sample(rnorm(x, mean_baseline, sd_baseline), size = 7, replace = TRUE)
+(BaselineScore <- sample(rnorm(x, mean_baseline, sd_baseline), size = 7, replace = TRUE))
 var.test(TeamScore, BaselineScore)
 t.test(TeamScore, BaselineScore)
 
