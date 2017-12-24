@@ -67,7 +67,7 @@ x <- seq(0,72,0.01)
 plot(x, dnorm(x, mean_baseline, sd_baseline), 
      type="l",
      lwd=2,
-     lty=2,
+     lty=1,
      ylim=c(0,.1),
      yaxt="n",
      bty="n",
@@ -107,7 +107,7 @@ lines(x, dnorm(x,mean_TeamScore, sd_TeamScore),
 
 legend(-3,.07,  
        c("Baseline","Best Individual", "Group", "Team"),
-       lty=c(2,1,1,1),
+       lty=c(1,1,1,1),
        lwd=c(2.5,2.5,2.5,2.5),
        col=c("black", "skyblue","blue", "red"),
        bty = "n")

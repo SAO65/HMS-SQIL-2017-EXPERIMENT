@@ -1,21 +1,21 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1513763385880.000,
+    "created" : 1514105734527.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1468453629",
-    "id" : "4910C83",
-    "lastKnownWriteTime" : 1513944178,
-    "last_content_update" : 1513944178557,
+    "hash" : "2521390188",
+    "id" : "B5FDD07E",
+    "lastKnownWriteTime" : 1514105913,
+    "last_content_update" : 1514105913549,
     "path" : "~/Desktop/EURAM 2018/Submission EURAM 2018/HMS-SQIL-2017-EXPERIMENT/HMS SQIL Experiment.R",
     "project_path" : "HMS SQIL Experiment.R",
     "properties" : {
-        "cursorPosition" : "66,34",
-        "scrollLine" : "40"
+        "cursorPosition" : "109,14",
+        "scrollLine" : "82"
     },
-    "relative_order" : 1,
+    "relative_order" : 2,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_source"
