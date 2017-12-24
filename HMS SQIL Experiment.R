@@ -1,3 +1,13 @@
+# Does teamwork improve clinician and executive leaders’ individual performance? 
+# A reproducible analysis of an experiment at the Harvard Medical School
+
+# Stefano Olgiati, PhD, MS1*, Ankur Kalra, MD2, Alessandro Danovi, MS1, Marco Costa, MD, PhD, MBA2
+
+# 1 University of Bergamo, Bergamo, Italy
+# 2 Case Western Reserve University School of Medicine, Cleveland, Ohio, United States
+# * Corresponding author: stefano.olgiati@unibg.it
+
+
 # DATA FROM THE HMS SQIL 04-2017 EXPERIMENT
 TeamScore <- c(42,64,38,60,54,52,64)
 AverageGroupScore <- c(51.25,65.6,51.25,61.3,60,61,57.2)
@@ -36,7 +46,7 @@ stripchart(strip.data,
            yaxt="n",
            bty="n",
            ylab="Score",
-           main="Experiment HMS SQIL 04-2017 \n April 2017, Boston (MA) \n Scatterplot")
+           main="Experiment HMS SQIL 04-2017 \n Scatterplot")
 axis(1, at=c(1,2,3), labels = c("Best Individual","Group","Team"))
 axis(2, at=c(0,36,72), las=1)
 axis(4, pos=3.2, at=c(round(min(TeamScore), 0), round(mean(TeamScore), 0),round(max(TeamScore),0)), col.axis="black", las=2, cex.axis=0.7, tck=-.01)
@@ -71,7 +81,7 @@ plot(x, dnorm(x, mean_baseline, sd_baseline),
      ylim=c(0,.1),
      yaxt="n",
      bty="n",
-     main="HMS SQIL Experiment 04-2017 \n April 2017, Boston (MA) \n Sampling Distribution",
+     main="HMS SQIL Experiment 04-2017 \n Expected and Actual Sampling Distributions",
      xlab="Score",
      ylab="",
      axes = FALSE)
@@ -106,7 +116,7 @@ lines(x, dnorm(x,mean_TeamScore, sd_TeamScore),
       lwd=2)
 
 legend(-3,.07,  
-       c("Baseline","Best Individual", "Group", "Team"),
+       c("Baseline Performance","Best Individual Performance", "Group Performance", "Team Performance"),
        lty=c(1,1,1,1),
        lwd=c(2.5,2.5,2.5,2.5),
        col=c("black", "skyblue","blue", "red"),

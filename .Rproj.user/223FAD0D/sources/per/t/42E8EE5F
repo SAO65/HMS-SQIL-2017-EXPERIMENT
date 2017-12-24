@@ -1,19 +1,19 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1514104770170.000,
+    "created" : 1514106829962.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1269993811",
-    "id" : "284D1518",
-    "lastKnownWriteTime" : 1514106082,
-    "last_content_update" : 1514106082817,
+    "hash" : "3144707541",
+    "id" : "42E8EE5F",
+    "lastKnownWriteTime" : 1514115631,
+    "last_content_update" : 1514115631892,
     "path" : "~/Desktop/EURAM 2018/Submission EURAM 2018/HMS-SQIL-2017-EXPERIMENT/Baseline Sampling Distribution.R",
     "project_path" : "Baseline Sampling Distribution.R",
     "properties" : {
-        "cursorPosition" : "55,35",
-        "scrollLine" : "17"
+        "cursorPosition" : "8,0",
+        "scrollLine" : "0"
     },
     "relative_order" : 2,
     "source_on_save" : false,

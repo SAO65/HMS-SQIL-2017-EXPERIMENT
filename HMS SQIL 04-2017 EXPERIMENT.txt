@@ -1,1 +1,7 @@
-Reproducibility can improve evidence-based methods, engage stakeholders, and promote transparency among researchers (Baker, 2016). For these reasons, this study uses open-access R and RStudio software; our actual data from the experiment, statistical inference and codes can be downloaded from GitHub at the public repository https://github.com/SAO65/HMS-SQIL-2017-EXPERIMENT, and reproduced and improved by fellow researchers.
+Does teamwork improve clinician and executive leaders’ individual performance? A reproducible analysis of an experiment at the Harvard Medical School
+
+Stefano Olgiati, PhD, MS 1*, Ankur Kalra, MD 2, Alessandro Danovi, MS 1, Marco Costa, MD, PhD, MBA 2
+
+1 University of Bergamo, Bergamo, Italy
+2 Case Western Reserve University School of Medicine, Cleveland, Ohio, United States
+* Corresponding author: stefano.olgiati@unibg.it
