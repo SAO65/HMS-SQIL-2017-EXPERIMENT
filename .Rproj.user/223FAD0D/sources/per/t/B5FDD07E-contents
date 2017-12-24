@@ -38,7 +38,7 @@ stripchart(strip.data,
            vertical=TRUE,
            axes=F,
            ylim=c(0,72),
-           col=c("skyblue", "blue", "red"),
+           col=c("skyblue", "red", "blue"),
            cex=1,
            lty = "solid",
            lwd = 2,
@@ -108,18 +108,18 @@ lines(x, dnorm(x,mean_BestIndividualScore, sd_BestIndividualScore),
       lwd=2)
 
 lines(x, dnorm(x,mean_AverageGroupScore, sd_AverageGroupScore), 
-      col="blue",
+      col="red",
       lwd=2)
 
 lines(x, dnorm(x,mean_TeamScore, sd_TeamScore), 
-      col="red",
+      col="blue",
       lwd=2)
 
 legend(-3,.07,  
        c("Baseline Performance","Best Individual Performance", "Group Performance", "Team Performance"),
        lty=c(1,1,1,1),
        lwd=c(2.5,2.5,2.5,2.5),
-       col=c("black", "skyblue","blue", "red"),
+       col=c("black", "skyblue","red", "blue"),
        bty = "n")
 
 
